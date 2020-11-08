@@ -1,8 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
 import { bankRouter } from "./routes/bank-router.js";
+import dotenv from "dotenv";
 
-require("dotenv").config();
+dotenv.config();
 
 const app = express();
 
@@ -24,4 +25,4 @@ const app = express();
 app.use(express.json());
 app.use(bankRouter);
 
-app.listen([process.env.PORT], () => console.log("API Iniciada"));
+app.listen({ port: process.env.PORT }, () => console.log("API Iniciada"));
